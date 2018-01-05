@@ -1,0 +1,17 @@
+---
+
+jobstores: 
+    db_url: sqlite:///jobs.sqlite
+    
+executors: 
+    thread_pool_max_workers: 20
+    process_pool_max_workers: 5
+    
+jobdefaults: 
+    # How long does a task is allowed to be reexecuted after the timer has been restarted, 
+    # this will only apply to tasks that have been persisted to the database, in units of seconds
+    misfire_grace_time: 600
+    # Whether to merge a task that should be executed multiple times for one time
+    coalesce: False
+    # Maximum number of concurrent of a task
+    max_instances: 1
